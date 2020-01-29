@@ -1,0 +1,21 @@
+{% if babysitter_list %}   
+ <h1>List Of BabySitters</h1>
+    {% for b in babysitter_list %}
+    <h5>Name: {{ b.Name }}</h5>
+    <h5>Email: {{ b.Email }}</h5>
+    <h5>Date of birth: {{ b.DateOfBirth }}</h5>
+    <hr/>
+    {% endfor %}
+{% else %}
+    <p>No baby sitters.</p>
+{% endif %}
+
+<form action="" method="POST">
+{% csrf_token %}
+{{ form }}
+<h3>Add a new babysitter</h3>
+    Name: <input type="text" name="name"><br/>
+    Email: <input type="email" name="email"><br/>
+    Date Of Birth: <input type="date" name="date"><br/>
+<input type="submit" value="Add">
+</form>
